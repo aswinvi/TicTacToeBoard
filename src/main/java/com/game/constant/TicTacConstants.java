@@ -18,7 +18,7 @@ public class TicTacConstants {
 
 	public static final String LAST_PLAYED = "Last Played : ";
 
-	public static final String NO_MOVES_LEFT_TO_PLAY = "Game Over !! No Moves left to Play !!";
+	public static final String NO_MOVES_LEFT_TO_PLAY = "No Moves left to Play !!";
 
 	public static final String PLAYER_X = "X";
 
@@ -27,5 +27,7 @@ public class TicTacConstants {
 	public static final String INVALID_MOVE_PLEASE_TRY_ANOTHER_POSITION = "Invalid Move!! Please try another Position : ";
 
 	public static final String PLAYER_O = "O";
+	
+	public static final String GAME_OVER = "Game Over!!";
 
 }

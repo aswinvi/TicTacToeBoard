@@ -18,7 +18,7 @@ public class TicTacBoard extends Board {
 	}
 
 	private boolean isTheSelectedBoxEmpty(int selectedBox, List<String> innerBoxes) {
-		return innerBoxes.get(selectedBox).matches(TicTacConstants.CHECK_FOR_NUMBER);
+		return innerBoxes.get(selectedBox-1).matches(TicTacConstants.CHECK_FOR_NUMBER);
 	}
 
 }
