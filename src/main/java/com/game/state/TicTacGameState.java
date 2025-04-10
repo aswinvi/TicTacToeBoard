@@ -14,8 +14,24 @@ public class TicTacGameState implements GameState {
 
 	private boolean checkGameState(Board board) {
 
-		return checkRowsForStrike(board.getInnerBoxes());
+		return checkRowsForStrike(board.getInnerBoxes()) || checkColumnForStrike(board.getInnerBoxes());
 
+	}
+
+	private boolean checkColumnForStrike(List<String> innerBoxes) {
+		for (int boxPosition = 0; boxPosition < TicTacConstants.MAX_NO_OF_COLUMN; boxPosition++) {
+			if (isVerticallyMatched(innerBoxes, boxPosition)) {
+				String winner = populatesMessageToPrint(innerBoxes, boxPosition);
+				System.out.println(String.format("%s %s", TicTacConstants.GAME_OVER, winner));
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private boolean isVerticallyMatched(List<String> boardPositions, int boxPosition) {
+		return boardPositions.get(boxPosition).equals(boardPositions.get(boxPosition + TicTacConstants.MAX_NO_OF_COLUMN))
+				&& boardPositions.get(boxPosition + TicTacConstants.MAX_NO_OF_COLUMN).equals(boardPositions.get(boxPosition + 6));
 	}
 
 	private boolean checkRowsForStrike(List<String> innerBoxes) {

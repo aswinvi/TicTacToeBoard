@@ -1,10 +1,10 @@
 package com.game.state;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 import org.junit.jupiter.api.Test;
 
@@ -22,19 +22,41 @@ class TicTacGameStateTest {
 
 		gameState = new TicTacGameState();
 
-		Scanner scanner = new Scanner("5\n3\n7\n9\n6\n8\n4\n2\n1\n");
+		Board anonymousBoard = createAnnonymousBoard(Arrays.asList("X", "X", "X", "O", "O", "6", "7", "8", "9"));
 
-		Board anonymousBoard = new Board(Arrays.asList("X", "X", "X", "O", "O", "6", "7", "8", "9")) {
+		assertTrue(gameState.evaluateBoard(anonymousBoard));
+
+	}
+
+	@Test
+	void closeTheGameWhenPlayerTwoStrikesConsicutiveColumns() {
+
+		gameState = new TicTacGameState();
+
+		Board anonymousBoard = createAnnonymousBoard(Arrays.asList("X", "O", "X", "4", "O", "O", "X", "O", "9"));
+
+		assertTrue(gameState.evaluateBoard(anonymousBoard));
+
+	}
+
+	private Board createAnnonymousBoard(List<String> listOfBoxes) {
+		return new Board(listOfBoxes) {
 
 			@Override
 			public boolean validMove(int selectedBox, List<String> innerBoxes) {
 				return false;
 			}
 		};
+	}
 
-		scanner.close();
+	@Test
+	void continueTheGameWhenIfNotStrike() {
 
-		assertTrue(gameState.evaluateBoard(anonymousBoard));
+		gameState = new TicTacGameState();
+
+		Board anonymousBoard = createAnnonymousBoard(Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9"));
+
+		assertFalse(gameState.evaluateBoard(anonymousBoard));
 
 	}
 
