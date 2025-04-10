@@ -26,4 +26,6 @@ public class TicTacConstants {
 
 	public static final String INVALID_MOVE_PLEASE_TRY_ANOTHER_POSITION = "Invalid Move!! Please try another Position : ";
 
+	public static final String PLAYER_O = "O";
+
 }

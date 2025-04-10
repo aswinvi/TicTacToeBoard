@@ -30,19 +30,19 @@ class TicTacPlayerInputTest {
 	}
 
 	@Test
-	void shouldReturnEmptyStringLastPlayerIfLastPlayedIsX() {
+	void shouldReturn_O_asLastPlayerAftreSecondPlayerMove() {
 
 		Scanner scanner = new Scanner("5\n3");
 
 		playerInput = new TicTacPlayerInput(board);
 
-		assertEquals(TicTacConstants.PLAYER_X,
+		assertEquals(TicTacConstants.PLAYER_O,
 				playerInput.getNextMove(board.getInnerBoxes(), TicTacConstants.PLAYER_X, scanner));
 
 	}
 
 	@Test
-	void shouldReturnLastPlayerIfLastPlayedIsX() {
+	void shouldReturnLastPlayer_O_IfLastPlayedbySecondPlayer() {
 
 		Board anonymousBoard = new Board(Arrays.asList("1", "X", "3", "X", "X", "6", "7", "8", "9")) {
 
@@ -56,9 +56,8 @@ class TicTacPlayerInputTest {
 
 		playerInput = new TicTacPlayerInput(anonymousBoard);
 
-		assertEquals(TicTacConstants.PLAYER_X,
-				playerInput.getNextMove(anonymousBoard.getInnerBoxes(), TicTacConstants.PLAYER_X, scanner));
+		assertEquals(TicTacConstants.PLAYER_O,
+				playerInput.getNextMove(anonymousBoard.getInnerBoxes(), TicTacConstants.PLAYER_O, scanner));
 
 	}
-
 }
