@@ -30,4 +30,11 @@ public class TicTacConstants {
 	
 	public static final String GAME_OVER = "Game Over!!";
 
+	public static final String PLAYER_ONE_IS_THE_WINNER = "The Winner of the Game is Player One!!";
+
+	public static final String PLAYER_TWO_IS_THE_WINNER = "The Winner of the Game is Player Two!!";
+	
+	public static final int MAX_NUMBER_OF_BOXES = 9;
+	
+	public static final int BOX_MIDDLE_TWO = 2;
 }

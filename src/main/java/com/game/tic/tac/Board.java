@@ -6,7 +6,7 @@ public abstract class Board {
 
 	private List<String> innerBoxes;
 
-	Board(List<String> initialBoxes) {
+	protected Board(List<String> initialBoxes) {
 		this.innerBoxes = initialBoxes;
 	}
 
