@@ -7,6 +7,8 @@ import com.game.display.TicTacBoardDisplayer;
 import com.game.play.PlayGame;
 import com.game.rules.GameRules;
 import com.game.rules.TicTacGameRules;
+import com.game.state.GameState;
+import com.game.state.TicTacGameState;
 
 public class Main {
 
@@ -22,9 +24,11 @@ public class Main {
 
 		GameRules rule = new TicTacGameRules();
 
-		PlayGame playGame = new PlayGame(playerInput, display, rule);
+		GameState gameState = new TicTacGameState();
 
-		playGame.playTicTacGame(ticTacBoard, "", 9, scanner);
+		PlayGame playGame = new PlayGame(playerInput, display, rule, gameState);
+
+		playGame.playTicTacGame(ticTacBoard, "", 9, scanner, false);
 
 		display.displayBoard(ticTacBoard);
 
