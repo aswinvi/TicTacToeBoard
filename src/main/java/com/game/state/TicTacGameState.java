@@ -15,20 +15,32 @@ public class TicTacGameState implements GameState {
 	private boolean checkGameState(Board board) {
 
 		return checkRowsForStrike(board.getInnerBoxes()) || checkColumnForStrike(board.getInnerBoxes())
-				|| checkDiagonallyForStrike(board.getInnerBoxes());
+				|| checkDiagonallyForStrike(board.getInnerBoxes()) || checkForDraw(board.getInnerBoxes());
 
 	}
 
-	private boolean checkDiagonallyForStrike(List<String> boardPositions) {
-		if (isDiagonallyMatchedFromRightCorner(boardPositions)) {
-			String winner = populatesMessageToPrint(boardPositions, 0);
+	private boolean checkForDraw(List<String> innerBoxes) {
+		if (matchForAnyNumber(innerBoxes)) {
+			System.out.println(TicTacConstants.IT_S_A_DRAW);
+			return true;
+		}
+		return false;
+	}
+
+	private boolean matchForAnyNumber(List<String> innerBoxes) {
+		return innerBoxes.stream().noneMatch(pos -> pos.matches("\\d"));
+	}
+
+	private boolean checkDiagonallyForStrike(List<String> innerBoxes) {
+		if (isDiagonallyMatchedFromRightCorner(innerBoxes)) {
+			String winner = populatesMessageToPrint(innerBoxes, 0);
 			System.out.println(String.format("%s %s %s", TicTacConstants.GAME_OVER,
 					TicTacConstants.RIGHT_DIAGONAL_STRIKE, winner));
 			return true;
 		}
 
-		if (isDiagonallyMatchedFromLeftCorner(boardPositions)) {
-			String winner = populatesMessageToPrint(boardPositions, 2);
+		if (isDiagonallyMatchedFromLeftCorner(innerBoxes)) {
+			String winner = populatesMessageToPrint(innerBoxes, 2);
 			System.out.println(
 					String.format("%s %s %s", TicTacConstants.GAME_OVER, TicTacConstants.LEFT_DIAGONAL_STRIKE, winner));
 			return true;

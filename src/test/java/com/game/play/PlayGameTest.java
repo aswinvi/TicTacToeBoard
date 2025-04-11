@@ -59,7 +59,8 @@ class PlayGameTest {
 
 		playGame = new PlayGame(playerInput, mockBoardDisplayer, rule, gameState);
 
-		assertThrows(TicTacExceptionHandler.class, () -> playGame.playTicTacGame(ticTacBoard, "", 9, scanner, false));
+		playGame.playTicTacGame(ticTacBoard, "", 9, scanner, false);
+
 		Mockito.verify(mockBoardDisplayer, Mockito.times(9)).displayBoard(ticTacBoard);
 
 	}

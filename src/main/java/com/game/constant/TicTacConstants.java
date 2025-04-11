@@ -45,4 +45,6 @@ public class TicTacConstants {
 	public static final String LEFT_DIAGONAL_STRIKE = "Left Diagonal Strike!!";
 
 	public static final String RIGHT_DIAGONAL_STRIKE = "Right Diagonal Strike!!";
+	
+	public static final String IT_S_A_DRAW = "It's a draw!";
 }

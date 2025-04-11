@@ -30,15 +30,15 @@ public class PlayGame {
 	public void playTicTacGame(Board board, String lastPlayed, int pendingMovesForPlayers, Scanner scanner,
 			boolean gameStatus) {
 
+		if (gameStatus) {
+			scanner.close();
+			return;
+		}
+
 		if (rule.shouldStopGame(pendingMovesForPlayers)) {
 			scanner.close();
 			System.out.println(TicTacConstants.GAME_OVER);
 			throw new TicTacExceptionHandler(TicTacConstants.NO_MOVES_LEFT_TO_PLAY);
-		}
-		
-		if (gameStatus) {
-			scanner.close();
-		return;
 		}
 
 		lastPlayed = playerInput.getNextMove(board.getInnerBoxes(), lastPlayed, scanner);

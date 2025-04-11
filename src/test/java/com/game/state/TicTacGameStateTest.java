@@ -60,14 +60,15 @@ class TicTacGameStateTest {
 
 	}
 
-	private Board createAnnonymousBoard(List<String> listOfBoxes) {
-		return new Board(listOfBoxes) {
+	@Test
+	void callItADrawIfNoMovesPending() {
 
-			@Override
-			public boolean validMove(int selectedBox, List<String> innerBoxes) {
-				return false;
-			}
-		};
+		gameState = new TicTacGameState();
+
+		Board anonymousBoard = createAnnonymousBoard(Arrays.asList("X", "O", "O", "O", "X", "X", "X", "X", "O"));
+
+		assertTrue(gameState.evaluateBoard(anonymousBoard));
+
 	}
 
 	@Test
@@ -79,6 +80,16 @@ class TicTacGameStateTest {
 
 		assertFalse(gameState.evaluateBoard(anonymousBoard));
 
+	}
+	
+	private Board createAnnonymousBoard(List<String> listOfBoxes) {
+		return new Board(listOfBoxes) {
+
+			@Override
+			public boolean validMove(int selectedBox, List<String> innerBoxes) {
+				return false;
+			}
+		};
 	}
 
 }

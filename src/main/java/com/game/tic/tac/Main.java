@@ -27,10 +27,12 @@ public class Main {
 		GameState gameState = new TicTacGameState();
 
 		PlayGame playGame = new PlayGame(playerInput, display, rule, gameState);
+		
+		display.displayBoard(ticTacBoard);
 
 		playGame.playTicTacGame(ticTacBoard, "", 9, scanner, false);
 
-		display.displayBoard(ticTacBoard);
+		
 
 	}
 }
