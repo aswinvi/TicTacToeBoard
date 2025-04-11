@@ -27,14 +27,22 @@ public class TicTacConstants {
 	public static final String INVALID_MOVE_PLEASE_TRY_ANOTHER_POSITION = "Invalid Move!! Please try another Position : ";
 
 	public static final String PLAYER_O = "O";
-	
+
 	public static final String GAME_OVER = "Game Over!!";
 
 	public static final String PLAYER_ONE_IS_THE_WINNER = "The Winner of the Game is Player One!!";
 
 	public static final String PLAYER_TWO_IS_THE_WINNER = "The Winner of the Game is Player Two!!";
-	
+
 	public static final int MAX_NUMBER_OF_BOXES = 9;
-	
+
 	public static final int BOX_MIDDLE_TWO = 2;
+
+	public static final String ROW_STRIKE = "Row Strike!!";
+
+	public static final String COLUMN_STRIKE = "Column Strike";
+
+	public static final String LEFT_DIAGONAL_STRIKE = "Left Diagonal Strike!!";
+
+	public static final String RIGHT_DIAGONAL_STRIKE = "Right Diagonal Strike!!";
 }

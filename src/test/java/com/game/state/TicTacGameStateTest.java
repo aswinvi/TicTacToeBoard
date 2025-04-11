@@ -38,6 +38,27 @@ class TicTacGameStateTest {
 		assertTrue(gameState.evaluateBoard(anonymousBoard));
 
 	}
+	
+	@Test
+	void closeTheGameWhenPlayerStrikesDiagonallyFromLeft() {
+
+		gameState = new TicTacGameState();
+
+		Board anonymousBoard = createAnnonymousBoard(Arrays.asList("X", "O", "3", "4", "X", "O", "X", "8", "X"));
+
+		assertTrue(gameState.evaluateBoard(anonymousBoard));
+
+	}
+	@Test
+	void closeTheGameWhenPlayerStrikesDiagonallyFromRight() {
+
+		gameState = new TicTacGameState();
+
+		Board anonymousBoard = createAnnonymousBoard(Arrays.asList("X", "2", "O", "4", "O", "6", "O", "8", "X"));
+
+		assertTrue(gameState.evaluateBoard(anonymousBoard));
+
+	}
 
 	private Board createAnnonymousBoard(List<String> listOfBoxes) {
 		return new Board(listOfBoxes) {
